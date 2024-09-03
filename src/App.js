@@ -6,7 +6,7 @@ function App() {
   const [role, setRole] = useState("dev");
   const showEmployees = true;
   return (
-    <div className="App bg-red-300">
+    <div className="App">
       {showEmployees ? (
         <>
           <input
@@ -16,11 +16,58 @@ function App() {
               setRole(e.target.value);
             }}
           />
-          <Employee name="Shiban" role="Intern" />
-          <Employee name="Sourab" role="Dev" />
-          <Employee name="Abhishek" role="Mech" />
-          <Employee name="Elvis" role="Pump" />
-          <Employee name="Abhay" role={role} />
+          <div className="flex flex-wrap justify-center">
+            <Employee
+              name="Shiban"
+              role="Intern"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Sourab"
+              role="Dev"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Abhishek"
+              role="Mech"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Elvis"
+              role="Pump"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Abhay"
+              role={role}
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Shiban"
+              role="Intern"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Sourab"
+              role="Dev"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Abhishek"
+              role="Mech"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Elvis"
+              role="Pump"
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+            <Employee
+              name="Abhay"
+              role={role}
+              img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"
+            />
+          </div>
         </>
       ) : (
         <p>You cannot see the employees</p>
