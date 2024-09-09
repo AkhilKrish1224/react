@@ -7,21 +7,49 @@ function App() {
   const [role, setRole] = useState("dev");
   const [employees, setEmployees] = useState([
     {
+      id: 1,
       name: "Shiban",
       role: "Developer",
       img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
     },
     {
+      id: 2,
       name: "Sourab",
       role: "Dev",
       img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
     },
     {
+      id: 3,
       name: "Abhishek",
       role: "Mech",
       img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
     },
     {
+      id: 4,
+      name: "Elvis",
+      role: "Pump",
+      img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
+    },
+    {
+      id: 5,
+      name: "Shiban",
+      role: "Developer",
+      img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
+    },
+    {
+      id: 6,
+      name: "Sourab",
+      role: "Dev",
+      img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
+    },
+    {
+      id: 7,
+      name: "Abhishek",
+      role: "Mech",
+      img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
+    },
+    {
+      id: 8,
       name: "Elvis",
       role: "Pump",
       img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
@@ -32,6 +60,16 @@ function App() {
     //   img: "https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg",
     // },
   ]);
+  function updateEmployee(id, newName, newRole) {
+    const updatedEmployees = employees.map((employee) => {
+      if (id == employee.id) {
+        return { ...employee, name: newName, role: newRole };
+      }
+      return employee;
+    });
+    setEmployees(updatedEmployees);
+  }
+
   const showEmployees = true;
   return (
     <div className="App">
@@ -46,13 +84,14 @@ function App() {
           />
           <div className="flex flex-wrap justify-center">
             {employees.map((employee) => {
-              console.log(uuidv4());
               return (
                 <Employee
-                  key={uuidv4()}
+                  key={employee.id}
+                  id={employee.id}
                   name={employee.name}
                   role={employee.role}
                   img={employee.img}
+                  updateEmployee={updateEmployee}
                 />
               );
             })}
