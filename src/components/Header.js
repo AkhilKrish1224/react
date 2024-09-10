@@ -10,8 +10,8 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
+  { name: "Employees", href: "/Employees", current: true },
+  { name: "Customers", href: "/Customers", current: false },
   { name: "Projects", href: "#", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
@@ -134,6 +134,7 @@ export default function Header(props) {
         </div>
       </DisclosurePanel>
       {props.children}
+      <footer>Example</footer>
     </Disclosure>
   );
 }
