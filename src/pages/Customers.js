@@ -4,6 +4,12 @@ import { baseUrl } from "../shared";
 import AddCustomer from "../components/AddCustomer";
 export default function Customers() {
   const [customers, setCustomers] = useState();
+  const [show, setShow] = useState(false);
+
+  function toggleShow() {
+    setShow(!show);
+  }
+
   useEffect(() => {
     console.log("fetching...");
     const url = baseUrl + "api/customers/";
@@ -31,7 +37,11 @@ export default function Customers() {
         }
         return response.json();
       })
-      .then((data) => {})
+      .then((data) => {
+        toggleShow();
+        console.log(data);
+        setCustomers([...customers, data.customer]);
+      })
       .catch((e) => {
         console.log(e);
       });
@@ -51,7 +61,11 @@ export default function Customers() {
             })
           : null}
       </ul>
-      <AddCustomer newCustomer={newCustomer} />
+      <AddCustomer
+        newCustomer={newCustomer}
+        show={show}
+        toggleShow={toggleShow}
+      />
     </>
   );
 }
