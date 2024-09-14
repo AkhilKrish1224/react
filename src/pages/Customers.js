@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { baseUrl } from "../shared";
 import AddCustomer from "../components/AddCustomer";
 export default function Customers() {
@@ -11,6 +11,7 @@ export default function Customers() {
     setShow(!show);
   }
 
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,7 +25,11 @@ export default function Customers() {
     })
       .then((response) => {
         if (response.status === 401) {
-          navigate("/login");
+          navigate("/login", {
+            state: {
+              previousUrl: location.pathname,
+            },
+          });
         }
 
         if (!response.ok) {
