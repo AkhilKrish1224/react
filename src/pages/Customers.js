@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { baseUrl } from "../shared";
 import AddCustomer from "../components/AddCustomer";
 export default function Customers() {
@@ -11,11 +11,17 @@ export default function Customers() {
     setShow(!show);
   }
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     console.log("fetching...");
     const url = baseUrl + "api/customers/";
     fetch(url)
       .then((response) => {
+        if (response.status === 401) {
+          navigate("/login");
+        }
+
         if (!response.ok) {
           throw new Error("Something went wrong");
         }

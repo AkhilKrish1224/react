@@ -11,6 +11,7 @@ import Dictionary from "./pages/Dictionary";
 import Definition from "./pages/Definition";
 import NotFound from "./components/NotFound";
 import Customer from "./pages/Customer";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/dictionary" element={<Dictionary />} />
           <Route path="/dictionary/:search" element={<Definition />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/customers/:id" element={<Customer />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
