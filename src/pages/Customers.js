@@ -16,7 +16,12 @@ export default function Customers() {
   useEffect(() => {
     console.log("fetching...");
     const url = baseUrl + "api/customers/";
-    fetch(url)
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("access"),
+      },
+    })
       .then((response) => {
         if (response.status === 401) {
           navigate("/login");
@@ -44,6 +49,7 @@ export default function Customers() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("access"),
       },
       body: JSON.stringify(data),
     })
