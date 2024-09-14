@@ -71,19 +71,25 @@ export default function Header(props) {
                       {item.name}
                     </NavLink>
                   ))}
-                  <NavLink
-                    to={loggedIn ? "/logout" : "/login"}
-                    className="no-underline rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                    // aria-current={item.current ? "page" : undefined}
-                    // className={classNames(
-                    //   item.current
-                    //     ? "no-underline bg-gray-900 text-white"
-                    //     : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
-                    //   "rounded-md px-3 py-2 text-sm font-medium"
-                    // )}
-                  >
-                    {loggedIn ? "Logout" : "Login"}
-                  </NavLink>
+                  {loggedIn ? (
+                    <NavLink
+                      to={"/login"}
+                      className="no-underline rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      onClick={() => {
+                        setLoggedIn(false);
+                        localStorage.clear();
+                      }}
+                    >
+                      Logout
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      to={"/login"}
+                      className="no-underline rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    >
+                      Login
+                    </NavLink>
+                  )}
                 </div>
               </div>
             </div>
@@ -125,19 +131,25 @@ export default function Header(props) {
                 {item.name}
               </NavLink>
             ))}
-            <NavLink
-              to={loggedIn ? "/logout" : "/login"}
-              className="no-underline block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              // aria-current={item.current ? "page" : undefined}
-              // className={classNames(
-              //   item.current
-              //     ? "no-underline bg-gray-900 text-white"
-              //     : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
-              //   "rounded-md px-3 py-2 text-sm font-medium"
-              // )}
-            >
-              {loggedIn ? "Logout" : "Login"}
-            </NavLink>
+            {loggedIn ? (
+              <NavLink
+                to={"/login"}
+                className="no-underline block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                onClick={() => {
+                  setLoggedIn(false);
+                  localStorage.clear();
+                }}
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <NavLink
+                to={"/login"}
+                className="no-underline block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              >
+                Login
+              </NavLink>
+            )}
           </div>
         </DisclosurePanel>
       </Disclosure>
