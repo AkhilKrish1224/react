@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import Customer from "./pages/Customer";
 import Login from "./pages/Login";
 import { baseUrl } from "./shared";
+import Register from "./pages/Register";
 
 export const LoginContext = createContext();
 
@@ -61,6 +62,7 @@ function App() {
             <Route path="/dictionary/:search" element={<Definition />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
