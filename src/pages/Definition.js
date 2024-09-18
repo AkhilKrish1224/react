@@ -16,7 +16,7 @@ export default function Definition() {
 
   const navigate = useNavigate();
 
-  const [word, errorStatus] = useFetch(
+  const { word, errorStatus } = useFetch(
     "https://api.dictionaryapi.dev/api/v2/entries/en/" + search
   );
 
