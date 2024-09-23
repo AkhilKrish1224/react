@@ -28,7 +28,7 @@ export default function Customer() {
   });
 
   useEffect(() => {
-    const url = baseUrl + "api/customers/" + id;
+    const url = baseUrl + "api/customers/" + id + "/";
     fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export default function Customer() {
 
   function updateCustomer(e) {
     e.preventDefault();
-    const url = baseUrl + "api/customers/" + id;
+    const url = baseUrl + "api/customers/" + id + "/";
     fetch(url, {
       method: "POST",
       headers: {
@@ -166,7 +166,7 @@ export default function Customer() {
             <button
               className="bg-slate-800 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded"
               onClick={(e) => {
-                const url = baseUrl + "api/customers/" + id;
+                const url = baseUrl + "api/customers/" + id + "/";
                 fetch(url, {
                   method: "DELETE",
                   headers: {
